@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Part number:</strong>
+  <%= @part.part_number %>
+</p>
+<% if @part.assemblies.present? %>
+  <h4>List of assemblies</h4>
+  <%@part.assemblies.each do |as|%>
+    <%= link_to as.name, as%><br>
+   <%end%>
+  <% else%>
+      <p>no assemblies yet!!</p>
+  <% end%><br>
+<%= link_to 'Edit', edit_part_path(@part) %> |
+<%= link_to 'Back', parts_path %>
